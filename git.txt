@@ -1,0 +1,53 @@
+Git Essentials
+
+To set the eth1 value for network
+vi /etc/nevimtwork/interfaces
+copy the value of eth0 and paste it by chaging it as eth1
+to bring eth1 up
+ifup
+
+
+To change hostname
+hostname git  (name of the server)
+vi /etc/hostname
+
+
+To change hosts
+vi /etc/hosts
+
+apt-get update #to update repository
+
+to install git
+apt-get install git
+
+install git in client server as well
+
+
+Passwordless authentication for client and git server
+create public keys and private keys
+
+on the git server
+add group
+groupadd dev
+useradd -G dev -d /home/git -m -s bin/bash git
+
+su git #changing user to git
+
+mkdir project.git #making a repository
+cd project.git
+--bare init	#init command will crete repositry
+ls		#couple of folders will be auto created
+branches	config	descriptions	HEAD	hooks	info	obbjects	refs
+
+ssh-keygen	#to create keys
+
+
+Go to the client server
+git clone git@serveraddress:project.git
+
+git add index.html 
+git status -s	#for staging
+git commit -m "This is our first commit"	# to commit the changes to the closest repository
+
+git remote -v	#to check the origin addr
+git push origin master	#to push the code
